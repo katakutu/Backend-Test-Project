@@ -14,5 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'product'], function(){
+	Route::get('/','productController@index');
 	Route::post('/','productController@store');
+	Route::get('/{id}','productController@show');
+
 });

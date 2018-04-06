@@ -13,7 +13,8 @@ class productController extends Controller
      */
     public function index()
     {
-        //
+        $data = \App\Product::all();
+        return response()->json($data,200);
     }
 
     /**
@@ -48,7 +49,9 @@ class productController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\Product::find($id);
+        
+        return response()->json($data, 201);
     }
 
     /**
