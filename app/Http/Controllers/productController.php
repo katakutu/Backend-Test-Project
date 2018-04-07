@@ -15,7 +15,7 @@ class productController extends Controller
     public function index()
     {
         $data = \App\Product::all();
-        return response()->json($data,200);
+        return response()->json(['data : ',$data],200);
     }
 
     /**
@@ -39,7 +39,7 @@ class productController extends Controller
         $product    = $request->all();
         $data       = \App\Product::create($product);
 
-        return response()->json($data, 201);
+        return response()->json(['data : ',$data],201);
     }
 
     /**
@@ -52,7 +52,7 @@ class productController extends Controller
     {
         $data = \App\Product::find($id);
 
-        return response()->json($data, 200);
+        return response()->json(['data : ',$data],200);
     }
 
     /**
@@ -78,7 +78,7 @@ class productController extends Controller
         $data = \App\Product::findOrFail($id);
         $data->update($request->all());
 
-        return response()->json($data, 200);
+        return response()->json(['data : ',$data],200);
     }
 
     /**
@@ -93,6 +93,6 @@ class productController extends Controller
 
         $true[] = $id;
 
-        return response()->json($true,200);
+        return response()->json(['data : ',$true],200);
     }
 }
