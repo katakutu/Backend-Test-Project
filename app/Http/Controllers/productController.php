@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class productController extends Controller
 {
     /**
@@ -36,7 +37,7 @@ class productController extends Controller
     public function store(Request $request)
     {
         $product    = $request->all();
-        $data       = \App\Product::create($product);
+        $data       = Product::create($product);
 
         return response()->json($data, 201);
     }
@@ -50,8 +51,8 @@ class productController extends Controller
     public function show($id)
     {
         $data = \App\Product::find($id);
-        
-        return response()->json($data, 201);
+
+        return response()->json($data, 200);
     }
 
     /**
@@ -74,7 +75,10 @@ class productController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = \App\Product::findOrFail($id);
+        $data->update($request->all());
+
+        return response()->json($data, 200);
     }
 
     /**

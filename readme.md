@@ -8,3 +8,5 @@ http://backend.kata-kutuku.net/api/product
 http://backend.kata-kutuku.net/api/product
 http://backend.kata-kutuku.net/api/product/1
 
+## Challange 3 - PUT
+http://backend.kata-kutuku.net/api/product/1
