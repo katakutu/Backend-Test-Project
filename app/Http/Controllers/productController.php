@@ -37,7 +37,7 @@ class productController extends Controller
     public function store(Request $request)
     {
         $product    = $request->all();
-        $data       = Product::create($product);
+        $data       = \App\Product::create($product);
 
         return response()->json($data, 201);
     }
@@ -89,6 +89,10 @@ class productController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = \App\Product::findOrFail($id)->delete();
+
+        $true[] = $id;
+
+        return response()->json($true,200);
     }
 }
