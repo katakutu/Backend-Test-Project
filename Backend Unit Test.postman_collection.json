@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "c6f8b7cd-77c1-4d49-9350-40b1ca4f022b",
+		"name": "Backend Unit Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3af0242a-6148-4ead-b99b-896157b7a34e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://backend.kata-kutuku.net/api/product",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"kata-kutuku",
+						"net"
+					],
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0c86c84-cc6a-44e3-900d-771271de0515",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c774e7d5-a5ed-473b-b046-bc0e565ef195",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "test product",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "15",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://backend.kata-kutuku.net/api/product?",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"kata-kutuku",
+						"net"
+					],
+					"path": [
+						"api",
+						"product"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "awkarin",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "10",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Product Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1a3aef7-88b0-43c3-9a00-daa70eeee9bb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://backend.kata-kutuku.net/api/product/8",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"kata-kutuku",
+						"net"
+					],
+					"path": [
+						"api",
+						"product",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1a3aef7-88b0-43c3-9a00-daa70eeee9bb",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "edit",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100000",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://backend.kata-kutuku.net/api/product/8",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"kata-kutuku",
+						"net"
+					],
+					"path": [
+						"api",
+						"product",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2676f305-ba2d-4d8f-b3de-bc651d213f7a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://backend.kata-kutuku.net/api/product/11",
+					"protocol": "http",
+					"host": [
+						"backend",
+						"kata-kutuku",
+						"net"
+					],
+					"path": [
+						"api",
+						"product",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
